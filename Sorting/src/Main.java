@@ -34,6 +34,13 @@ public class Main {
 			System.out.print(svec[i] + " ");
 		}
 		System.out.println();
+		
+		ivec = SelectionSort.sort(vec);
+		System.out.print("Insertion-sort: ");
+		for (i = 0; i < 20; i++) {
+			System.out.print(ivec[i] + " ");
+		}
+		System.out.println();
 	}
 
 }
