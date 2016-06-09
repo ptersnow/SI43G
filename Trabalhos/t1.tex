@@ -1,0 +1,52 @@
+\section*{Introduç˜ao}
+
+\textbf{Matrizes esparsas} s˜ao matrizes nas quais a maioria das posiç˜oes s˜ao preenchidas por zeros. Para estas matrizes, podemos economizar um espaço significativo de memória se apenas os termos diferentes de zero forem armazenados. As operaç˜oes matemáticas usuais sobre estas matrizes (somar, multiplicar, inverter, pivotar) também podem ser feitas em tempo muito menor se n˜ao armazenarmos as posiç˜oes que contêm zeros.
+
+O objetivo deste trabalho é implementar e testar uma forma particular de representaç˜ao para armazenar e manipular as matrizes esparsas: listas encadeadas. Elas se contrap˜oem a outros formatos também usuais para representar matrizes esparsas, tipicamente baseados em conjuntos de vetores de índices e valores (como CRS, CCS etc). Esses formatos fornecem uma maneira eficiente de implementar operaç˜oes matemáticas usuais sobre matrizes, mas n˜ao s˜ao t˜ao eficientes para representar estruturas com tamanho variável e/ou desconhecido. É nesse último tipo de cenário que a representaç˜ao por listas encadeadas apresenta vantagens.
+
+\subsection*{Representação por Listas Encadeadas}
+
+Na representaç˜ao por listas encadeadas, cada coluna da matriz é representada por uma lista linear circular com uma célula cabeça. Da mesma maneira, cada linha da matriz também é representada por uma lista linear circular com uma célula cabeça. Cada célula da estrutura, além das células-cabeça, representa os termos diferentes de zero da matriz. Um exemplo de tipo para essas células é ilustrado abaixo:
+
+\begin{verbatim}
+
+public class Cell {
+  private int line;
+  private int column;
+  private float info;
+  
+  private Cell right;
+  private Cell bellow;
+  
+  /******************************************************************
+  ************* Getters e Setters
+  *******************************************************************/
+}
+
+\end{verbatim}
+
+O campo \textbf{below} é usado para apontar o próximo elemento diferente de zero na mesma coluna. O campo right é usado para apontar o próximo elemento diferente de zero na mesma linha. Dada uma matriz $A$, para um valor $A(i, j)$ diferente de zero, há uma cálula com o campo info contendo $A(i, j)$, o campo $line$ contendo $i$ e o campo $column$ contendo $j$. Esta célula pertence à lista circular da linha $i$ e também à lista circular da coluna $j$. Ou seja, cada célula pertence a duas listas ao mesmo tempo. Para diferenciar as células cabeça, valores inválidos (por exemplo, -1) podem ser usados nos campos $line$ e $column$ destas células.
+
+Como exemplo, considere a matriz esparsa
+
+A =
+50 0 0 0
+10 0 20 0
+0 0 0 0
+−30 0 −60 5
+.
+
+Uma possível representaç˜ao dessa matriz usando listas encadeadas pode ser vista na Figura \ref{fig_matrix}.
+
+\begin{figure}[htp]
+\label{fig_matrix}
+\end{figure}
+
+
+
+Com esta representação, uma matrix esparsa $m \times n$ com $r$ elementos diferentes de zero gastará $(m + n + r)$ células. É bem verdade que cada célula ocupa vários bytes na memória, no entanto, o total de memória usado será menor do que as $m \times n$ posiç˜oes de memória necessárias para representar a matriz toda, desde que $r$ seja suficientemente pequeno.
+
+
+\section*{Introduç˜ao}
+
+Dada a forma de representação acima, o trabalho consiste em desenvolver um TAD para criaç˜ao e manipulaç˜ao de matrizes. O TAD deverá se chamar Matrix e esse identificador deverá ser usado para referenciar a forma de representaç˜ao acima. Toda operaç˜ao deve retornar $0$ em caso de sucesso e $\neq 0$ em caso de erro.
