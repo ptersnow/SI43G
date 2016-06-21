@@ -38,5 +38,7 @@ public class Fibonacci {
 		
 		System.out.println(fibonacciIterativo(n));
 		System.out.println(fibonacciRecursivo(n));
+		
+		leitor.close();
 	}
 }

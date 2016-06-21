@@ -1,7 +1,7 @@
 
 public class Fatorial {
 
-	public static int fatorialIterativo (int n) {
+	public int fatorialIterativo (int n) {
 		int i;
 		int resultado = 1;
 		
@@ -14,7 +14,7 @@ public class Fatorial {
 		return resultado;
 	}
 	
-	public static int fatorialRecursivo (int n) {
+	public int fatorialRecursivo (int n) {
 		if (n == 1) {
 			System.out.print("1");
 			System.out.println();
@@ -27,15 +27,4 @@ public class Fatorial {
 			return res;
 		}
 	}
-	
-	public static void main(String[] args) {
-		System.out.println(fatorialIterativo(10));
-		
-		System.out.println();
-		System.out.println("fatorialRecursivo");
-		
-		System.out.println(fatorialRecursivo(10));
-		
-	}
-
 }
