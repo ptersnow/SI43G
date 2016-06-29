@@ -78,12 +78,12 @@ Dada a forma de representação acima, o trabalho consiste em desenvolver um TAD
   Para facilitar a leitura de stdin, deve-se usar ``0'' como marcador especial de fim de matriz após a última tripla (vide exemplo acima).
 
 
-  \item[] \begin{verbatim}int matrix_print()\end{verbatim} imprime a matriz para stdout no mesmo formato usado no construtor;
-  \item[] \begin{verbatim}int matrix_add(Matrix m, Matrix n, Matrix r)\end{verbatim} recebe como parâmetros as matrizes m e n, retornando em r a soma das mesmas (a estrutura da matriz retornada deve ser alocada dinamicamente pela própria operação);
-  \item[] \begin{verbatim}int matrix_multiply(Matrix m, Matrix n, Matrix r)\end{verbatim} recebe como parâmetros as matrizes m e n, retornando em r a multiplicação das mesmas (a estrutura da matriz retornada deve ser alocada dinamicamente pela própria operação);
-  \item[] \begin{verbatim}int matrix_transpose(Matrix m, Matrix r)\end{verbatim} recebe como parâmetro a matriz m, retornando em r a matriz $m^{T}$ - a transposta de m (a estrutura da matriz retornada deve ser alocada dinamicamente pela própria operação);
-  \item[] \begin{verbatim}int matrix_getelem(int x, int y, float elem)\end{verbatim} retorna o valor do elemento (x, y) da matriz m em elem;
-  \item[] \begin{verbatim}int matrix_setelem(int x, int y, float elem)\end{verbatim} atribui ao elemento (x, y) da matriz m o valor elem.
+  \item[] \begin{verbatim}public int print()\end{verbatim} imprime a matriz para stdout no mesmo formato usado no construtor;
+  \item[] \begin{verbatim}public static Matrix add(Matrix m, Matrix n)\end{verbatim} recebe como parâmetros as matrizes m e n, retornando em r a soma das mesmas (a estrutura da matriz retornada deve ser alocada dinamicamente pela própria operação);
+  \item[] \begin{verbatim}public static Matrix multiply(Matrix m, Matrix n)\end{verbatim} recebe como parâmetros as matrizes m e n, retornando em r a multiplicação das mesmas (a estrutura da matriz retornada deve ser alocada dinamicamente pela própria operação);
+  \item[] \begin{verbatim}public static Matrix transpose(Matrix m)\end{verbatim} recebe como parâmetro a matriz m, retornando em r a matriz $m^{T}$ - a transposta de m (a estrutura da matriz retornada deve ser alocada dinamicamente pela própria operação);
+  \item[] \begin{verbatim}public int getElem(int x, int y)\end{verbatim} retorna o valor do elemento (x, y) da matriz m em elem;
+  \item[] \begin{verbatim}public int setElem(int x, int y, float elem)\end{verbatim} atribui ao elemento (x, y) da matriz m o valor elem.
 \end{itemize}
 
 

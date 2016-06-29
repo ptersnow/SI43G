@@ -10,10 +10,10 @@ public class Matrix {
 		Cell aux, temp;
 		int i, j, lines, columns;
 		Scanner leitor = new Scanner(System.in);
-		
+
 		lines = leitor.nextInt();
 		columns = leitor.nextInt();
-		
+
 		head = new Cell(-1, -1, 0);
 		temp = head;
 		for (i = 1; i <= lines; i++) {
@@ -22,7 +22,7 @@ public class Matrix {
 			temp = temp.getBelow();
 		}
 		temp.setBelow(head);
-		
+
 		temp = head;
 		for (j = 1; j <= columns; j++) {
 			aux = new Cell(-1, j, 0);
@@ -36,35 +36,64 @@ public class Matrix {
 			if (i != 0) {
 				j = leitor.nextInt();
 				val = leitor.nextFloat();
-				
-				this.matrix_setelem(i, j, val);
+
+				this.setElem(i, j, val);
 			}
 		} while (i != 0);
-		
+
 		leitor.close();
 	}
 
-	float matrix_getelem(int x, int y) {
+	float getElem(int x, int y) {
 		return 0;
 	}
 
-	int matrix_setelem(int x, int y, float elem) {
+	int setElem(int x, int y, float elem) {
 		return 0;
 	}
 
-	int matrix_print() {
+	int print() {
+		int lin, col;
+		Cell temp = head.getBelow();
+
+		lin = 0;
+	    while (temp.getLine() != -1) {
+	        lin++;
+	        temp = temp.getBelow();
+	    }
+
+	    col = 0;
+	    temp = head.getRight();
+	    while (temp.getColumn() != -1) {
+	        col++;
+	        temp = temp.getRight();
+	    }
+
+	    temp = head.getBelow();
+	    System.out.println(lin + " " + col);
+		while (temp.getLine() != -1) {
+			temp = temp.getRight();
+
+			while (temp.getColumn() != -1) {
+				System.out.println(temp.getLine() + " " + temp.getColumn() + " " + temp.getInfo());
+				temp = temp.getRight();
+			}
+
+			temp = temp.getBelow();
+		}
+
 		return 0;
 	}
 
-	int matrix_add(Matrix m, Matrix n, Matrix r) {
-		return 0;
+	public static Matrix add(Matrix m, Matrix n) {
+		return null;
 	}
 
-	int matrix_multiply(Matrix m, Matrix n, Matrix r) {
-		return 0;
+	public static Matrix multiply(Matrix m, Matrix n) {
+		return null;
 	}
 
-	int matrix_transpose(Matrix m, Matrix r) {
-		return 0;
+	public static Matrix transpose(Matrix m) {
+		return null;
 	}
 }
